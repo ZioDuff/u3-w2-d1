@@ -21,9 +21,9 @@ class SingleBook extends Component {
         //tramite il setState possiamo leggere il valore dello stato e in caso cambiarlo
         //potevamo usare il valore "true" per poter cambiare lo stato ma facendo cosi lo stete non poteva tornare mai false in caso di un click successivo
         //utilizzando "!" gli diciamo al click di cambiare ogni volta lo stato alternando quindi tra "true" e "false"
-        onClick={() => this.setState({ selected: true })}
       >
         <Card.Img
+          onClick={() => this.setState({ selected: !this.state.selected })}
           variant="top"
           src={this.props.src}
           alt={this.props.alt}

@@ -8,10 +8,10 @@ const { Component } = require("react")
 
 class CommentArea extends Component {
   state = {
-    comments: [],
+    element: [],
   }
 
-  fetchComments = () => {
+  getFetchComments = () => {
     fetch(
       "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
       {
@@ -29,19 +29,19 @@ class CommentArea extends Component {
           throw new Error("errore nella fetch")
         }
       })
-      .then((resp) => {
-        this.setState({ comments: resp })
-        console.log(resp)
+      .then((element) => {
+        this.setState({ element })
+        console.log(element)
       })
       .catch((error) => console.log(error))
   }
   componentDidMount() {
-    this.fetchComments()
+    this.getFetchComments()
   }
   render() {
     return (
       <>
-        <CommentList comments={this.state.comments} />
+        <CommentList element={this.state.element} />
         <AddComment />
       </>
     )
