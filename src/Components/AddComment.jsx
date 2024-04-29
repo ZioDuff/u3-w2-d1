@@ -2,7 +2,24 @@ import { Component } from "react"
 import { Form } from "react-bootstrap"
 
 class AddComment extends Component {
-  render() {
+  fetchPostComments = () => {
+    fetch(
+      "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
+      {
+        method: "POST",
+        body: JSON.stringify(),
+        headers: {
+          "Content-type": "application-json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjJmOWEzYTI4MzJlODAwMTk4NzMwYWMiLCJpYXQiOjE3MTQzOTU3MDYsImV4cCI6MTcxNTYwNTMwNn0.0NEnVpCWBS-BPhBaDC4yTcnB6P-RHpTsPYVEKUOBDVo",
+        },
+      }
+    )
+  }
+  componentDidMount(){
+    this.fetchPostComments()
+  }
+    render() {
     return (
       <>
         <Form>
@@ -21,6 +38,7 @@ class AddComment extends Component {
             <Form.Label>Example textarea</Form.Label>
             <Form.Control as="textarea" rows={3} />
           </Form.Group>
+          <button>invia</button>
         </Form>
       </>
     )
