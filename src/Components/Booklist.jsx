@@ -97,7 +97,7 @@ class BookList extends Component {
           {filteredBooks.map((book) => {
             return (
               // la key viene sempre messa sul primo figlio del map
-              <Col key={book.asin} className="mb-2">
+              <Col className="mb-2">
                 {/* singleBook viene importato da un altro componente ma non è nient'altro che la struttura della card dove i valori vengono passati tramite props */}
                 <SingleBook
                   key={book.asin}

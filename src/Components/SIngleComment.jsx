@@ -6,8 +6,8 @@ const SingleComment = (props) => {
       <ListGroupItem>
         {props.comment}
         {props.rate}
+        <span>{props.elementID}</span>
       </ListGroupItem>
-      <span>{props.elementID}</span>
     </>
   )
 }

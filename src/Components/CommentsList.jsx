@@ -7,10 +7,10 @@ class CommentList extends Component {
     return (
       <>
         <ListGroup>
-          {this.props.element.slice(0, 2).map((obj) => {
+          {this.props.element.map((obj) => {
             return (
               <SingleComment
-                key={obj.elementID}
+                key={obj._id}
                 comment={obj.comment}
                 rate={obj.rate}
               />
